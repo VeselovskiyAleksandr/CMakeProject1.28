@@ -19,7 +19,7 @@ int read(int i, memory number[8]) {
 	return number[i].x;
 }
 
-int ram(int i, string str, int acceptVal=0) {
+int ram(int i, string str, int acceptVal) {
 	if (str == "input") {
 		write(number);
 	}
@@ -29,7 +29,7 @@ int ram(int i, string str, int acceptVal=0) {
 	else if (str == "sum") {
 		return  read(i, number);
 	}
-	else if (str == "load") {
+	else if (str == "load") {	
 		number[i].x = acceptVal;
 	}
 	else if (str == "save") {

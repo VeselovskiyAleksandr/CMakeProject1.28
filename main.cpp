@@ -1,6 +1,6 @@
+#include "disk.h"
 #include "cpu.h"
 #include "ram.h"
-#include "disk.h"
 #include "gpu.h"
 #include "kbd.h"
 #include <iostream>
@@ -14,8 +14,8 @@ int main()
 {
 	setlocale(LC_ALL, "RUS");
 	int count = 0;
-	string str = "";
-	while (str != "exit") {
+	string s = "";
+	while (s != "exit") {
 		cout << "\nВыберите действие:";
 		cout << "\n     sum - вычисление суммы";
 		cout << "\n     save - сохранить в файл";
@@ -23,45 +23,44 @@ int main()
 		cout << "\n     input - ввести с клавиатуры";
 		cout << "\n     display - вывести на экран";
 		cout << "\n     exit - выходит из программы.";
-		cin >> str;
-		if (str == "input") {
+		cin >> s;
+		if (s == "input") {
 			count++;
 			int i = 0, acceptVal = 0;
-			ram(i, str, acceptVal);
-			str = "";
+			ram(i, s, acceptVal);
+			s = "";
 		}
-		else if (str == "display") {
+		else if (s == "display") {
 			if (count == 0) {
 				cout << "\nОперативная память не заполнена.";
 				break;
 			}
 			gpu();
-			str = "";
+			s = "";
 		}
-		else if (str == "sum") {
+		else if (s == "sum") {
 			if (count == 0) {
 				cout << "\nОперативная память не заполнена.";
 				break;
 			}
 			cout << "\nРезультат: " << cpu();
-			str = "";
+			s = "";
 		}
-		else if (str == "save") {
+		else if (s == "save") {
 			if (count == 0) {
 				cout << "\nОперативная память не заполнена.";
 				break;
 			}
-
-			disk(str);
-			str = "";
+			disk(s);
+			s = "";
 		}
-		else if (str == "load") {
-			disk(str);
+		else if (s == "load") {
+			disk(s);
 			count++;  // нужно, чтобы после загрузки в оперативную память 
 					   //производить дальнейшие действия.
-			str = "";
+			s = "";
 		}
-		else if (str == "exit") {
+		else if (s == "exit") {
 			break;
 		}
 	}

@@ -1,7 +1,7 @@
 #include "kbd.h"
 #include <iostream>
 #include <locale.h>
-
+#include <string> 
 using namespace std;
 
 int kbd() {

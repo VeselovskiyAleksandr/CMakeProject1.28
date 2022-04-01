@@ -1,2 +1,4 @@
 #pragma once
-int ram(int i, string str, int acceptVal=0);
+#include <string>
+using namespace std;
+int ram(int i, string str, int acceptVal);
